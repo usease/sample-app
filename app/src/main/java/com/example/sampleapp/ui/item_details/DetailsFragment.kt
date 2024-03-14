@@ -1,4 +1,4 @@
-package com.example.sampleapp.item_details
+package com.example.sampleapp.ui.item_details
 
 import androidx.fragment.app.Fragment
 import com.example.sampleapp.R
