@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
-import com.example.sampleapp.ui.items.ItemsFragment
+import com.example.sampleapp.ui.exhibits.ExhibitsFragment
 
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         if (savedInstanceState == null) {
             supportFragmentManager.commit {
                 setReorderingAllowed(true)
-                add<ItemsFragment>(R.id.fragment_container_view)
+                add<ExhibitsFragment>(R.id.fragment_container_view)
             }
         }
     }
