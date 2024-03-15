@@ -9,11 +9,14 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.sampleapp.R
+import com.example.sampleapp.base.BaseFragment
 import com.example.sampleapp.databinding.FragmentExhibitsBinding
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class ExhibitsFragment : Fragment(R.layout.fragment_exhibits) {
+class ExhibitsFragment : BaseFragment(R.layout.fragment_exhibits) {
+
+    override val TAG: String = ExhibitsFragment::class.simpleName!!
 
     private lateinit var binding: FragmentExhibitsBinding
     private val viewModel: ExhibitsViewModel by viewModel()
@@ -37,11 +40,11 @@ class ExhibitsFragment : Fragment(R.layout.fragment_exhibits) {
                 viewModel.uiState.collect {
                     // Events
                     it.showMessage?.getContentIfNotHandled()?.let { message ->
-//                        showAndLogD(message)
+                        showAndLogD(message)
                     }
 
                     it.showErrorMessage?.getContentIfNotHandled()?.let { message ->
-//                        showAndLogE(message)
+                        showAndLogE(message)
                     }
 
                     it.exhibits?.getContentIfNotHandled()?.let {

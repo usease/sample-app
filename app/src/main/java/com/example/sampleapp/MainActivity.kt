@@ -4,9 +4,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.add
 import androidx.fragment.app.commit
+import com.example.sampleapp.base.BaseActivity
 import com.example.sampleapp.ui.exhibits.ExhibitsFragment
 
-class MainActivity : AppCompatActivity(R.layout.activity_main) {
+class MainActivity : BaseActivity(R.layout.activity_main) {
+
+    override val TAG: String = MainActivity::class.simpleName!!
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         if (savedInstanceState == null) {
