@@ -11,6 +11,6 @@ interface MuseumApi {
     suspend fun getExhibits(
         @Query("key") key: String = Keys.API_KEY,
         @Query("culture") language: String = Constants.ENGLISH,
-        @Query("imgonly") onlyWithImages: Boolean = true,
+        @Query("imgonly") onlyWithImages: Boolean = true
         ): ApiResponse<ArtSearchResult>
 }
