@@ -2,14 +2,15 @@ package com.example.sampleapp.ui.exhibits
 
 import androidx.lifecycle.ViewModel
 import com.example.sampleapp.di.viewModelsModule
+import com.example.sampleapp.network.ApiEmptyResponse
+import com.example.sampleapp.network.ApiErrorResponse
+import com.example.sampleapp.network.ApiSuccessResponse
 import com.example.sampleapp.repository.MuseumRepo
 import com.example.sampleapp.repository.MuseumRepoImpl
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 class ExhibitsViewModel (private val repo: MuseumRepo): ViewModel() {
-
-//class ExhibitsViewModel: ViewModel() {
 
 //     Expose screen UI state
 //    private val _uiState = MutableStateFlow(DiceUiState())
@@ -25,7 +26,16 @@ class ExhibitsViewModel (private val repo: MuseumRepo): ViewModel() {
 //        }
 //    }
     suspend fun getExhibits(): String {
-        return repo.getExhibits()
-//        return "AAAAA"
+        return when (val response = repo.getExhibits()) {
+                is ApiSuccessResponse -> {
+                    response.body.artObjects.toString()
+                }
+                is ApiEmptyResponse -> {
+                    "Empty response"
+                }
+                is ApiErrorResponse -> {
+                    response.errorMessage
+                }
+            }
     }
 }
