@@ -37,7 +37,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
-        compose = true
+        viewBinding = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
@@ -82,8 +82,18 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 
-    // DI
-    implementation (libs.koin.core)
-    implementation (libs.koin.android)
-    implementation (libs.koin.androidx.viewmodel)
+//    // DI
+//    implementation (libs.koin.core)
+//    implementation (libs.koin.android)
+//    implementation (libs.koin.androidx.viewmodel)
+
+    implementation ("io.insert-koin:koin-android:2.0.1")
+    implementation ("io.insert-koin:koin-androidx-viewmodel:2.1.6")
+
+    implementation(libs.androidx.core)
+
+
+//    implementation("org.koin:koin-core:2.0.1")
+//    implementation ("org.koin:koin-android:2.0.1")
+    //    implementation ("org.koin:koin-androidx-viewmodel:2.0.1")
 }
