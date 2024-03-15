@@ -7,6 +7,7 @@ core = "1.12.0"
 fragmentKtxVersion = "1.6.2"
 gson = "2.10.1"
 koinAndroid = "2.0.1"
+koinAndroidVersion = "2.1.6"
 koinAndroidxViewmodel = "2.0.1"
 koinCore = "2.0.1"
 kotlin = "1.9.0"
@@ -32,6 +33,8 @@ converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref
 converter-scalars = { module = "com.squareup.retrofit2:converter-scalars", version.ref = "converterScalars" }
 fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtxVersion" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
+insert-koin-koin-android = { module = "io.insert-koin:koin-android", version.ref = "koinAndroidVersion" }
+insert-koin-koin-androidx-viewmodel = { module = "io.insert-koin:koin-androidx-viewmodel", version.ref = "koinAndroidVersion" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

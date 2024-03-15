@@ -1,6 +1,7 @@
 package com.example.sampleapp.ui.exhibits
 
 import androidx.lifecycle.ViewModel
+import com.example.sampleapp.di.viewModelsModule
 import com.example.sampleapp.repository.MuseumRepo
 import com.example.sampleapp.repository.MuseumRepoImpl
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -23,8 +24,8 @@ class ExhibitsViewModel (private val repo: MuseumRepo): ViewModel() {
 //            )
 //        }
 //    }
-    fun getExhibits(): String {
-//        return repo.getExhibits().toString()
-        return "AAAAA"
+    suspend fun getExhibits(): String {
+        return repo.getExhibits()
+//        return "AAAAA"
     }
 }

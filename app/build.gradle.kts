@@ -68,6 +68,7 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.fragment.ktx)
+    implementation(libs.androidx.core)
 
     // Networking
     implementation(libs.retrofit)
@@ -82,18 +83,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.coroutines.android)
 
-//    // DI
-//    implementation (libs.koin.core)
-//    implementation (libs.koin.android)
-//    implementation (libs.koin.androidx.viewmodel)
-
-    implementation ("io.insert-koin:koin-android:2.0.1")
-    implementation ("io.insert-koin:koin-androidx-viewmodel:2.1.6")
-
-    implementation(libs.androidx.core)
-
-
-//    implementation("org.koin:koin-core:2.0.1")
-//    implementation ("org.koin:koin-android:2.0.1")
-    //    implementation ("org.koin:koin-androidx-viewmodel:2.0.1")
+    // DI
+    implementation (libs.insert.koin.koin.android)
+    implementation (libs.insert.koin.koin.androidx.viewmodel)
 }
