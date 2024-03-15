@@ -68,4 +68,13 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.fragment.ktx)
+
+    // Networking
+    implementation(libs.retrofit)
+    implementation (libs.gson)
+    implementation (libs.okhttp)
+    implementation (libs.logging.interceptor)
+    implementation (libs.adapter.rxjava2)
+    implementation (libs.converter.gson)
+    implementation (libs.converter.scalars)
 }
