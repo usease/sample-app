@@ -1,12 +1,12 @@
 package com.example.sampleapp.di
 
+import com.example.sampleapp.BuildConfig
 import com.example.sampleapp.constants.Constants
 import com.example.sampleapp.network.MuseumApi
 import com.google.gson.GsonBuilder
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
-import org.koin.android.BuildConfig
 import org.koin.android.ext.koin.androidApplication
 import retrofit2.Retrofit
 import org.koin.dsl.module

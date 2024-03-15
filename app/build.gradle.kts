@@ -37,6 +37,7 @@ android {
         jvmTarget = "1.8"
     }
     buildFeatures {
+        buildConfig = true
         viewBinding = true
     }
     composeOptions {
@@ -69,6 +70,7 @@ dependencies {
 
     implementation(libs.fragment.ktx)
     implementation(libs.androidx.core)
+    implementation(libs.timber)
 
     // Networking
     implementation(libs.retrofit)
