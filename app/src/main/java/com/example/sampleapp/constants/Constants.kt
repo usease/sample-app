@@ -1,4 +1,4 @@
-package com.example.myapplication.data.constants
+package com.example.sampleapp.constants
 
 import retrofit2.http.GET
 

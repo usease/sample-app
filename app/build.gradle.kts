@@ -77,4 +77,13 @@ dependencies {
     implementation (libs.adapter.rxjava2)
     implementation (libs.converter.gson)
     implementation (libs.converter.scalars)
+
+    // Coroutines
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.android)
+
+    // DI
+    implementation (libs.koin.core)
+    implementation (libs.koin.android)
+    implementation (libs.koin.androidx.viewmodel)
 }
