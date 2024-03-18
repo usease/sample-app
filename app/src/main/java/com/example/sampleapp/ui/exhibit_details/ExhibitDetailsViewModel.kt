@@ -18,7 +18,15 @@ class ExhibitDetailsViewModel (private val repo: MuseumRepo): ViewModel() {
     private val _uiState = MutableStateFlow(ExhibitDetailsState())
     val uiState: StateFlow<ExhibitDetailsState> = _uiState.asStateFlow()
 
-    fun getExhibitDetails(objectNumber: String) {
+    fun getExhibitDetails(objectNumber: String?) {
+        if(objectNumber == null) {
+            _uiState.update { currentState ->
+                currentState.copy(
+                    showErrorMessage = Event("Object number of the exhibit is missing.")
+                )
+            }
+            return
+        }
         _uiState.update { currentState ->
             currentState.copy(
                 isLoading = true

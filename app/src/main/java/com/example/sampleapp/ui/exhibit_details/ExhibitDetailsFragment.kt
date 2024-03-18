@@ -9,6 +9,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.sampleapp.R
 import com.example.sampleapp.base.BaseFragment
+import com.example.sampleapp.constants.Constants
 import com.example.sampleapp.databinding.FragmentExhibitDetailsBinding
 import com.squareup.picasso.Picasso
 import kotlinx.coroutines.launch
@@ -31,7 +32,7 @@ class ExhibitDetailsFragment: BaseFragment(R.layout.fragment_exhibit_details) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val objectNumber = "BK-AM-33-J"
+        val objectNumber = arguments?.getString(Constants.nav_arguments.object_number)
         viewModel.getExhibitDetails(objectNumber)
         collectUiState()
     }
