@@ -1,10 +1,10 @@
-package com.example.sampleapp.models
+package com.example.sampleapp.models.dto.exhibits
 
 import com.google.gson.annotations.SerializedName
 
-data class Facet(
+data class FacetDto(
     @SerializedName("facets")
-    val facets: List<FacetObject>,
+    val facetDtos: List<FacetObjectDto>,
 
     @SerializedName("name")
     val name: String,

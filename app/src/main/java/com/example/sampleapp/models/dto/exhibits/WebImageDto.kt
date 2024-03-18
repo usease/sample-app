@@ -1,8 +1,8 @@
-package com.example.sampleapp.models
+package com.example.sampleapp.models.dto.exhibits
 
 import com.google.gson.annotations.SerializedName
 
-data class WebImage(
+data class WebImageDto(
     @SerializedName("guid")
     val guid: String,
 

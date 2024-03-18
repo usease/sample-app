@@ -1,19 +1,19 @@
-package com.example.sampleapp.models
+package com.example.sampleapp.models.dto.exhibits
 
 import com.google.gson.annotations.SerializedName
 
-data class ArtObject(
+data class ArtObjectDto(
     @SerializedName("hasImage")
     val hasImage: Boolean,
 
     @SerializedName("headerImage")
-    val headerImage: HeaderImage,
+    val headerImageDto: HeaderImageDto,
 
     @SerializedName("id")
     val id: String,
 
     @SerializedName("links")
-    val links: Links,
+    val linksDto: LinksDto,
 
     @SerializedName("longTitle")
     val longTitle: String,
@@ -37,5 +37,5 @@ data class ArtObject(
     val title: String,
 
     @SerializedName("webImage")
-    val webImage: WebImage
+    val webImageDto: WebImageDto
 )

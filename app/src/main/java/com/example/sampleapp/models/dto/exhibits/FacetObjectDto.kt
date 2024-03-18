@@ -1,8 +1,8 @@
-package com.example.sampleapp.models
+package com.example.sampleapp.models.dto.exhibits
 
 import com.google.gson.annotations.SerializedName
 
-data class FacetObject(
+data class FacetObjectDto(
     @SerializedName("key")
     val key: String,
 
