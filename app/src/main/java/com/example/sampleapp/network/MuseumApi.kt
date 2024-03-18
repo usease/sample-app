@@ -15,10 +15,10 @@ import retrofit2.http.QueryName
 interface MuseumApi {
     @GET("collection")
     suspend fun getExhibits(
-        @Query("key") key: String = Keys.API_KEY,
         @Query("p") pageNumber: Int = 0,
         @Query("imgonly") onlyWithImages: Boolean = true,
-        ): Response<ArtSearchResultDto>
+        @Query("key") key: String = Keys.API_KEY
+    ): Response<ArtSearchResultDto>
 
     @GET("collection/{objectNumber}/")
     suspend fun getExhibitDetails(

@@ -1,10 +1,10 @@
 package com.example.sampleapp
 
 import android.app.Application
-import com.example.sampleapp.di.mappersModule
+import com.example.sampleapp.di.mapperModule
 import com.example.sampleapp.di.networkModule
-import com.example.sampleapp.di.repositoriesModule
-import com.example.sampleapp.di.viewModelsModule
+import com.example.sampleapp.di.repositoryModule
+import com.example.sampleapp.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -22,7 +22,7 @@ class MainApplication : Application() {
         startKoin{
             androidLogger(Level.ERROR)
             androidContext(this@MainApplication)
-            modules(listOf(mappersModule, networkModule, repositoriesModule, viewModelsModule))
+            modules(listOf(mapperModule, networkModule, repositoryModule, viewModelModule))
         }
     }
 }
