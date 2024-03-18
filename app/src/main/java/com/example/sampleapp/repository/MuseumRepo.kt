@@ -5,7 +5,7 @@ import com.example.sampleapp.models.domain.exhibit_details.ExhibitDetails
 import com.example.sampleapp.network.ApiResponse
 
 interface MuseumRepo {
-    suspend fun getExhibits(): ApiResponse<List<Exhibit>>
+    suspend fun getExhibits(pageNumber: Int): ApiResponse<List<Exhibit>>
 
     suspend fun getExhibitDetails(objectNumber: String): ApiResponse<ExhibitDetails>
 }

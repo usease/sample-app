@@ -9,7 +9,10 @@ class ExhibitMapper : DomainMapper<ArtSearchResultDto, List<Exhibit>> {
             dto.artObjectDtos.forEach {
                 add(
                     Exhibit(
-                        it.title
+                        objectNumber = it.objectNumber,
+                        title = it.title,
+                        principalOrFirstMaker = it.principalOrFirstMaker,
+                        headerImageUrl = it.headerImageDto.url
                     )
                 )
             }

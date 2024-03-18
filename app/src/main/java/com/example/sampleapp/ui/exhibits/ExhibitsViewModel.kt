@@ -34,31 +34,31 @@ class ExhibitsViewModel (private val repo: MuseumRepo): ViewModel() {
 //        getExhibits()
     }
 
-    fun getExhibits() {
-        viewModelScope.launch {
-            when (val response = repo.getExhibits()) {
-                is ApiSuccessResponse -> {
-                    _uiState.update { currentState ->
-                        currentState.copy(
-                            exhibits = Event(response.body)
-                        )
-                    }
-                }
-                is ApiEmptyResponse -> {
-                    _uiState.update { currentState ->
-                        currentState.copy(
-                            showMessage = Event( "Empty response received while loading exhibits.")
-                        )
-                    }
-                }
-                is ApiErrorResponse -> {
-                    _uiState.update { currentState ->
-                        currentState.copy(
-                            showErrorMessage = Event( "Error occurred while loading exhibits. " + response.errorMessage)
-                        )
-                    }
-                }
-            }
-        }
-    }
+//    fun getExhibits() {
+//        viewModelScope.launch {
+//            when (val response = repo.getExhibits()) {
+//                is ApiSuccessResponse -> {
+//                    _uiState.update { currentState ->
+//                        currentState.copy(
+//                            exhibits = Event(response.body)
+//                        )
+//                    }
+//                }
+//                is ApiEmptyResponse -> {
+//                    _uiState.update { currentState ->
+//                        currentState.copy(
+//                            showMessage = Event( "Empty response received while loading exhibits.")
+//                        )
+//                    }
+//                }
+//                is ApiErrorResponse -> {
+//                    _uiState.update { currentState ->
+//                        currentState.copy(
+//                            showErrorMessage = Event( "Error occurred while loading exhibits. " + response.errorMessage)
+//                        )
+//                    }
+//                }
+//            }
+//        }
+//    }
 }

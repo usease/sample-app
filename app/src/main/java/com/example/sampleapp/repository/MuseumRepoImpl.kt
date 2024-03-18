@@ -11,8 +11,8 @@ class MuseumRepoImpl(private val api: MuseumApi,
                      private val exhibitMapper: ExhibitMapper,
                      private val exhibitDetailsMapper: ExhibitDetailsMapper
 ): MuseumRepo {
-    override suspend fun getExhibits(): ApiResponse<List<Exhibit>> {
-        val exhibitsDto = api.getExhibits()
+    override suspend fun getExhibits(pageNumber: Int): ApiResponse<List<Exhibit>> {
+        val exhibitsDto = api.getExhibits(pageNumber = pageNumber)
         return ApiResponse.createByMapping(exhibitsDto, exhibitMapper)
     }
 

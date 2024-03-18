@@ -18,6 +18,7 @@ import com.example.sampleapp.ui.exhibits.paging.ExhibitsAdapter
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class ExhibitsFragment : BaseFragment(R.layout.fragment_exhibits) {
 
@@ -36,30 +37,30 @@ class ExhibitsFragment : BaseFragment(R.layout.fragment_exhibits) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        collectUiState()
+//        collectUiState()
         setupAdapter()
     }
 
-    private fun collectUiState() {
-        viewLifecycleOwner.lifecycleScope.launch {
-            repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiState.collect {
-                    // Events
-                    it.showMessage?.getContentIfNotHandled()?.let { message ->
-                        showAndLogD(message)
-                    }
-
-                    it.showErrorMessage?.getContentIfNotHandled()?.let { message ->
-                        showAndLogE(message)
-                    }
-
-                    it.exhibits?.getContentIfNotHandled()?.let {
-                        binding.tv.text = it.toString()
-                    }
-                }
-            }
-        }
-    }
+//    private fun collectUiState() {
+//        viewLifecycleOwner.lifecycleScope.launch {
+//            repeatOnLifecycle(Lifecycle.State.STARTED) {
+//                viewModel.uiState.collect {
+//                    // Events
+//                    it.showMessage?.getContentIfNotHandled()?.let { message ->
+//                        showAndLogD(message)
+//                    }
+//
+//                    it.showErrorMessage?.getContentIfNotHandled()?.let { message ->
+//                        showAndLogE(message)
+//                    }
+//
+//                    it.exhibits?.getContentIfNotHandled()?.let {
+//                        binding.tv.text = it.toString()
+//                    }
+//                }
+//            }
+//        }
+//    }
 
     private fun setupAdapter() {
         val pagingAdapter = ExhibitsAdapter(ExhibitComparator) {

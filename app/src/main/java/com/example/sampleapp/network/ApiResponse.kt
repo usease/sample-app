@@ -1,5 +1,6 @@
 package com.example.sampleapp.network
 
+import com.example.sampleapp.models.domain.util.DomainMapper
 import retrofit2.Response
 
 /**
@@ -20,6 +21,26 @@ sealed class ApiResponse<T> {
                     ApiEmptyResponse()
                 } else {
                     ApiSuccessResponse(body)
+                }
+            } else {
+                val msg = response.errorBody()?.string()
+                val errorMsg = if (msg.isNullOrEmpty()) {
+                    response.message()
+                } else {
+                    msg
+                }
+                ApiErrorResponse(errorMsg ?: "Unknown error")
+            }
+        }
+
+        fun <T, D> createByMapping(response: Response<T>, mapper: DomainMapper<T, D>): ApiResponse<D> {
+            return if (response.isSuccessful) {
+                val body = response.body()
+                if (body == null || response.code() == 204) {
+                    ApiEmptyResponse()
+                } else {
+                    val domainModel = mapper.mapToDomainModel(body)
+                    ApiSuccessResponse(domainModel)
                 }
             } else {
                 val msg = response.errorBody()?.string()

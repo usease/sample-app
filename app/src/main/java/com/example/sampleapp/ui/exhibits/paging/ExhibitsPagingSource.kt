@@ -3,29 +3,42 @@ package com.example.sampleapp.ui.exhibits.paging
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.example.sampleapp.models.domain.exhibits.Exhibit
+import com.example.sampleapp.network.ApiEmptyResponse
+import com.example.sampleapp.network.ApiErrorResponse
+import com.example.sampleapp.network.ApiSuccessResponse
+import com.example.sampleapp.repository.MuseumRepo
 import com.example.sampleapp.repository.MuseumRepoImpl
+import com.example.sampleapp.utils.Event
+import kotlinx.coroutines.flow.update
 import retrofit2.HttpException
 import timber.log.Timber
 import java.io.IOException
 
-class ExhibitsPagingSource(
-    val backend: MuseumRepoImpl,
-    val query: String
-) : PagingSource<Int, Exhibit>() {
+class ExhibitsPagingSource(val repo: MuseumRepo) : PagingSource<Int, Exhibit>() {
 
     private val TAG: String = ExhibitsPagingSource::class.simpleName!!
     override suspend fun load(
         params: LoadParams<Int>
     ): LoadResult<Int, Exhibit> {
         try {
-            // Start refresh at page 1 if undefined.
-            val nextPageNumber = params.key ?: 1
-            val response = backend.getExhibits(query, nextPageNumber)
-            return LoadResult.Page(
-                data = response,
-                prevKey = null, // Only paging forward.
-                nextKey = response.nextPageNumber
-            )
+            // Start refresh at page 0 if undefined.
+            var nextPageNumber = params.key ?: 0
+            Timber.tag(TAG).d("Loading page $nextPageNumber")
+            return when (val response = repo.getExhibits(nextPageNumber)) {
+                is ApiSuccessResponse -> {
+                    LoadResult.Page(
+                        data = response.body,
+                        prevKey = null, // Only paging forward.
+                        nextKey = ++nextPageNumber
+                    )
+                }
+                is ApiEmptyResponse -> {
+                    LoadResult.Error(Throwable("Empty responseee"))
+                }
+                is ApiErrorResponse -> {
+                    LoadResult.Error(Throwable("Error responseee"))
+                }
+            }
         } catch (e: IOException) {
             // IOException for network failures.
             Timber.tag(TAG).e(e, "IOException: $e")

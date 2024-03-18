@@ -1,5 +1,8 @@
 package com.example.sampleapp.models.domain.exhibits
 
 data class Exhibit (
-    val label: String
+    val objectNumber: String,
+    val title: String,
+    val principalOrFirstMaker: String,
+    val headerImageUrl: String
 )

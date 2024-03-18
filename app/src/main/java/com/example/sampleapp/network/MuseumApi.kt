@@ -16,7 +16,8 @@ interface MuseumApi {
     @GET("collection")
     suspend fun getExhibits(
         @Query("key") key: String = Keys.API_KEY,
-        @Query("imgonly") onlyWithImages: Boolean = true
+        @Query("p") pageNumber: Int = 0,
+        @Query("imgonly") onlyWithImages: Boolean = true,
         ): Response<ArtSearchResultDto>
 
     @GET("collection/{objectNumber}/")
