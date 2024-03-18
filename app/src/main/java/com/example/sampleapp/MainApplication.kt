@@ -1,6 +1,7 @@
 package com.example.sampleapp
 
 import android.app.Application
+import com.example.sampleapp.di.mappersModule
 import com.example.sampleapp.di.networkModule
 import com.example.sampleapp.di.repositoriesModule
 import com.example.sampleapp.di.viewModelsModule
@@ -21,7 +22,7 @@ class MainApplication : Application() {
         startKoin{
             androidLogger(Level.ERROR)
             androidContext(this@MainApplication)
-            modules(listOf(networkModule, repositoriesModule, viewModelsModule))
+            modules(listOf(mappersModule, networkModule, repositoriesModule, viewModelsModule))
         }
     }
 }
