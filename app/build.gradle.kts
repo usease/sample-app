@@ -71,6 +71,8 @@ dependencies {
     implementation(libs.fragment.ktx)
     implementation(libs.androidx.core)
     implementation(libs.timber)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.picasso)
 
     // Networking
     implementation(libs.retrofit)
@@ -88,4 +90,8 @@ dependencies {
     // DI
     implementation (libs.insert.koin.koin.android)
     implementation (libs.insert.koin.koin.androidx.viewmodel)
+
+    // Navigation
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
 }
