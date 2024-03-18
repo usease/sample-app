@@ -1,20 +1,20 @@
-package com.example.sampleapp.models
+package com.example.sampleapp.models.dto.exhibits
 
 import com.google.gson.annotations.SerializedName
 
-data class ArtSearchResult(
+data class ArtSearchResultDto(
     @SerializedName("artObjects")
-    val artObjects: List<ArtObject>,
+    val artObjectDtos: List<ArtObjectDto>,
 
     @SerializedName("count")
     val count: Int,
 
     @SerializedName("countFacets")
-    val countFacets: CountFacets,
+    val countFacetsDto: CountFacetsDto,
 
     @SerializedName("elapsedMilliseconds")
     val elapsedMilliseconds: Int,
 
     @SerializedName("facets")
-    val facets: List<Facet>
+    val facetDtos: List<FacetDto>
 )
