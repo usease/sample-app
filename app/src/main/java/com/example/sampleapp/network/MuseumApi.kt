@@ -1,19 +1,27 @@
 package com.example.sampleapp.network
 
-import com.example.sampleapp.constants.Constants
 import com.example.sampleapp.constants.Keys
-import com.example.sampleapp.models.ArtSearchResult
-import io.reactivex.Completable
-import io.reactivex.Single
+import com.example.sampleapp.models.dto.exhibits.ArtSearchResultDto
+import com.example.sampleapp.models.dto.exhibit_details.ExhibitDetailsDto
 import retrofit2.Response
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.GET
+import retrofit2.http.POST
+import retrofit2.http.Path
 import retrofit2.http.Query
+import retrofit2.http.QueryName
 
 interface MuseumApi {
     @GET("collection")
     suspend fun getExhibits(
         @Query("key") key: String = Keys.API_KEY,
-        @Query("culture") language: String = Constants.ENGLISH,
         @Query("imgonly") onlyWithImages: Boolean = true
-        ): Response<ArtSearchResult>
+        ): Response<ArtSearchResultDto>
+
+    @GET("collection/{objectNumber}/")
+    suspend fun getExhibitDetails(
+        @Path("objectNumber") objectNumber: String,
+        @Query("key") key: String = Keys.API_KEY
+    ): Response<ExhibitDetailsDto>
 }
