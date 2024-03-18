@@ -6,6 +6,5 @@ import com.example.sampleapp.utils.Event
 data class ExhibitsState(
     // Events
     val showMessage: Event<String>? = null,
-    val showErrorMessage: Event<String>? = null,
-    val exhibits:  Event<List<Exhibit>>? = null,
+    val showErrorMessage: Event<String>? = null
 )
