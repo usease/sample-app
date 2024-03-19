@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.sampleapp.R
 import com.example.sampleapp.base.BaseFragment
 import com.example.sampleapp.constants.Constants
+import com.example.sampleapp.constants.Navigation
 import com.example.sampleapp.databinding.FragmentExhibitsBinding
 import com.example.sampleapp.ui.exhibits.paging.ExhibitComparator
 import com.example.sampleapp.ui.exhibits.paging.ExhibitsAdapter
@@ -101,7 +102,7 @@ class ExhibitsFragment : BaseFragment(R.layout.fragment_exhibits) {
     }
 
     private fun navigateToDetails(objectNumber: String) {
-        findNavController().navigate("${Constants.nav_routes.exhibit_details}/$objectNumber",
+        findNavController().navigate("${Navigation.Routes.exhibit_details}/$objectNumber",
             navOptions {
                 anim {
                     enter = android.R.animator.fade_in

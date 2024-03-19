@@ -5,9 +5,8 @@ import retrofit2.Response
 
 /**
  * Common class used by API responses.
- * @param <T> the type of the response object
-</T> */
-@Suppress("unused") // T is used in extending classes
+ * @param <T> the type of the response object </T>
+ * */
 sealed class ApiResponse<T> {
     companion object {
         fun <T> create(error: Throwable): ApiErrorResponse<T> {
@@ -33,6 +32,10 @@ sealed class ApiResponse<T> {
             }
         }
 
+        /**
+         * Creates [ApiResponse] from [Response].
+         * Requires a [DomainMapper] that maps DTO to domain model.
+         */
         fun <T, D> createByMapping(response: Response<T>, mapper: DomainMapper<T, D>): ApiResponse<D> {
             return if (response.isSuccessful) {
                 val body = response.body()
@@ -56,7 +59,7 @@ sealed class ApiResponse<T> {
 }
 
 /**
- * separate class for HTTP 204 responses so that we can make ApiSuccessResponse's body non-null.
+ * Separate class for HTTP 204 responses in order to make [ApiSuccessResponse]'s body non-null.
  */
 class ApiEmptyResponse<T> : ApiResponse<T>()
 data class ApiSuccessResponse<T>(val body: T) : ApiResponse<T>()
