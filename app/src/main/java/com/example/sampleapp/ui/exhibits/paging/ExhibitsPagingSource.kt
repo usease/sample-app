@@ -2,7 +2,7 @@ package com.example.sampleapp.ui.exhibits.paging
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.example.sampleapp.models.domain.exhibits.Exhibit
+import com.example.sampleapp.domain.exhibits.Exhibit
 import com.example.sampleapp.network.ApiEmptyResponse
 import com.example.sampleapp.network.ApiErrorResponse
 import com.example.sampleapp.network.ApiSuccessResponse

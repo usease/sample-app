@@ -1,9 +1,9 @@
 package com.example.sampleapp.repository
 
-import com.example.sampleapp.models.domain.exhibits.Exhibit
-import com.example.sampleapp.models.domain.exhibit_details.ExhibitDetails
-import com.example.sampleapp.models.domain.exhibit_details.ExhibitDetailsMapper
-import com.example.sampleapp.models.domain.exhibits.ExhibitMapper
+import com.example.sampleapp.domain.exhibits.Exhibit
+import com.example.sampleapp.domain.exhibit_details.ExhibitDetails
+import com.example.sampleapp.domain.exhibit_details.ExhibitDetailsMapper
+import com.example.sampleapp.domain.exhibits.ExhibitMapper
 import com.example.sampleapp.network.ApiResponse
 import com.example.sampleapp.network.MuseumApi
 

@@ -9,7 +9,7 @@ import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.example.sampleapp.R
-import com.example.sampleapp.models.domain.exhibits.Exhibit
+import com.example.sampleapp.domain.exhibits.Exhibit
 import com.squareup.picasso.Picasso
 
 class ExhibitsAdapter(diffCallback: DiffUtil.ItemCallback<Exhibit>,

@@ -1,6 +1,6 @@
 package com.example.sampleapp.ui.exhibit_details
 
-import com.example.sampleapp.models.domain.exhibit_details.ExhibitDetails
+import com.example.sampleapp.domain.exhibit_details.ExhibitDetails
 import com.example.sampleapp.utils.Event
 
 data class ExhibitDetailsState (

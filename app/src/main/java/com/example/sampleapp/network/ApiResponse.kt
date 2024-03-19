@@ -1,6 +1,6 @@
 package com.example.sampleapp.network
 
-import com.example.sampleapp.models.domain.util.DomainMapper
+import com.example.sampleapp.domain.util.DomainMapper
 import retrofit2.Response
 
 /**

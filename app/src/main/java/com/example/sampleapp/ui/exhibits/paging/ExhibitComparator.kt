@@ -1,7 +1,7 @@
 package com.example.sampleapp.ui.exhibits.paging
 
 import androidx.recyclerview.widget.DiffUtil
-import com.example.sampleapp.models.domain.exhibits.Exhibit
+import com.example.sampleapp.domain.exhibits.Exhibit
 
 object ExhibitComparator : DiffUtil.ItemCallback<Exhibit>() {
     override fun areItemsTheSame(oldItem: Exhibit, newItem: Exhibit): Boolean {
