@@ -10,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.sampleapp.R
 import com.example.sampleapp.base.BaseFragment
-import com.example.sampleapp.constants.Constants
 import com.example.sampleapp.constants.Navigation
 import com.example.sampleapp.databinding.FragmentExhibitDetailsBinding
 import com.squareup.picasso.Picasso
@@ -67,12 +66,21 @@ class ExhibitDetailsFragment: BaseFragment(R.layout.fragment_exhibit_details) {
 
                     it.exhibitDetails?.getContentIfNotHandled()?.let { exhibitDetails ->
                         (requireActivity() as AppCompatActivity).supportActionBar?.title = exhibitDetails.title
+
                         binding.tvObjectNumber.text = exhibitDetails.objectNumber
                         binding.tvMakerLine.text = exhibitDetails.makerLine
                         binding.tvDesc.text = exhibitDetails.desc
                         Picasso.get().load(exhibitDetails.imageUrl).into(binding.iv)
-                        binding.tvMaterials.text = String.format(getString(R.string.materials), exhibitDetails.materials.joinToString(", "))
-                        binding.tvTechniques.text = String.format(getString(R.string.techniques), exhibitDetails.techniques.joinToString(", "))
+
+                        binding.tvMaterials.text = if(exhibitDetails.materials.isNotEmpty())
+                            String.format(getString(R.string.materials), exhibitDetails.materials.joinToString(", "))
+                        else
+                            String.format(getString(R.string.materials), getString(R.string.na))
+
+                        binding.tvTechniques.text = if(exhibitDetails.techniques.isNotEmpty())
+                            String.format(getString(R.string.techniques), exhibitDetails.techniques.joinToString(", "))
+                        else
+                            String.format(getString(R.string.techniques), getString(R.string.na))
 
                         binding.gContent.visibility = View.VISIBLE
                     }

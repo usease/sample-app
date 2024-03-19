@@ -6,4 +6,5 @@
     <string name="techniques">Techniques: %s</string>
     <string name="rijks_museum">Rijks museum</string>
     <string name="exhibit_details">Exhibit Details</string>
+    <string name="na">N/A</string>
 </resources>
