@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
@@ -65,9 +66,7 @@ class ExhibitDetailsFragment: BaseFragment(R.layout.fragment_exhibit_details) {
                     }
 
                     it.exhibitDetails?.getContentIfNotHandled()?.let { exhibitDetails ->
-                        //TODO set title to action bar
-                        //actionBar.title = exhibitDetails.title
-
+                        (requireActivity() as AppCompatActivity).supportActionBar?.title = exhibitDetails.title
                         binding.tvObjectNumber.text = exhibitDetails.objectNumber
                         binding.tvMakerLine.text = exhibitDetails.makerLine
                         binding.tvDesc.text = exhibitDetails.desc
